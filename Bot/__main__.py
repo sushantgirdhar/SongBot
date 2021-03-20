@@ -21,7 +21,7 @@ owner_help = """
 """
 
 
-@app.on_message(filters.create(ignore_blacklisted_users) & filters.command("start"))
+@app.on_message(filters.command("start"))
 async def start(client, message):
     chat_id = message.chat.id
     user_id = message.from_user["id"]
@@ -42,7 +42,7 @@ async def start(client, message):
     add_chat_to_db(str(chat_id))
 
 
-@app.on_message(filters.create(ignore_blacklisted_users) & filters.command("help"))
+@app.on_message(filters.command("help"))
 async def help(client, message):
     if message.from_user["id"] in OWNER_ID:
         await message.reply(owner_help)
