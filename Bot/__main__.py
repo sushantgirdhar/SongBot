@@ -5,8 +5,6 @@ from pyrogram import idle, filters
 from pyrogram.types import InlineKeyboardMarkup
 from pyrogram.types import InlineKeyboardButton
 from Bot import app, LOGGER
-from Bot.utils import ignore_blacklisted_users
-from Bot.sql.chat_sql import add_chat_to_db
 
 start_text = """
 Hey [{}](tg://user?id={}), I can help you get your desired song right in the chat.
