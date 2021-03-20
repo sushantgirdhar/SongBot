@@ -5,6 +5,7 @@ from pytube import YouTube
 from pyrogram.types import InlineKeyboardMarkup
 from pyrogram.types import InlineKeyboardButton
 from youtubesearchpython import VideosSearch
+from Bot.utils import get_arg
 from Bot import app, LOGGER
 
 def yt_search(song):
@@ -22,6 +23,10 @@ def yt_search(song):
 async def song(client, message):
     chat_id = message.chat.id
     user_id = message.from_user["id"]
+    args = get_arg(message) + " " + "song"
+    if args.startswith(" "):
+        await message.reply("Enter a song name. Check /help")
+        return ""    
     status = await message.reply("Processing...")
     video_link = yt_search(args)
     if not video_link:
