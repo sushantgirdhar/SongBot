@@ -6,8 +6,6 @@ from pyrogram.types import InlineKeyboardMarkup
 from pyrogram.types import InlineKeyboardButton
 from youtubesearchpython import VideosSearch
 from Bot import app, LOGGER
-from Bot.sql.chat_sql import add_chat_to_db
-
 
 def yt_search(song):
     videosSearch = VideosSearch(song, limit=1)
