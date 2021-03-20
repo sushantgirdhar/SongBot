@@ -39,7 +39,6 @@ async def start(client, message):
     else:
         btn = None
     await message.reply(start_text.format(name, user_id), reply_markup=btn)
-    add_chat_to_db(str(chat_id))
 
 
 @app.on_message(filters.command("help"))
